@@ -9,8 +9,8 @@ import appScreenshot2 from "@/assets/app-screenshot-2.png";
 import appScreenshot3 from "@/assets/app-screenshot-3.png";
 import appScreenshot4 from "@/assets/app-screenshot-4.png";
 import appScreenshot5 from "@/assets/app-screenshot-5.png";
-import appScreenshot6 from "@/assets/app-screenshot-6.png";
 import appScreenshot7 from "@/assets/app-screenshot-7.png";
+import certificate from "@/assets/certificate.png";
 import googlePlayBadge from "@/assets/google-play-badge.png";
 
 const Index = () => {
@@ -22,8 +22,8 @@ const Index = () => {
     appScreenshot3,
     appScreenshot4,
     appScreenshot5,
-    appScreenshot6,
     appScreenshot7,
+    certificate,
   ];
 
   const navigationItems = [
@@ -75,11 +75,11 @@ const Index = () => {
           <section className="mb-16 animate-fade-up">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-                Experience the Future of 
-                <span className="bg-gradient-gold bg-clip-text text-transparent"> Digital Mining</span>
+                Join Millions of Users already Mining 
+                <span className="bg-gradient-gold bg-clip-text text-transparent"> GOLD COIN</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Join thousands of users already earning with Goldcoin. Start your mining journey today.
+                Start Your Mining Journey on Mobile and Become a Visual Star among your friends
               </p>
             </div>
 
@@ -193,31 +193,14 @@ const Index = () => {
                   href="https://play.google.com/store/apps/details?id=com.goldcoin.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block"
+                  className="inline-block hover:scale-105 transition-transform duration-300"
                 >
                   <img 
                     src={googlePlayBadge} 
                     alt="Get it on Google Play"
-                    className="h-16 md:h-20 hover:scale-105 transition-transform duration-300"
+                    className="h-16 md:h-20"
                   />
                 </a>
-                
-                <div className="mt-6">
-                  <Button 
-                    asChild
-                    className="bg-gradient-gold hover:bg-gradient-gold-glow text-primary-foreground font-semibold px-8 py-3 btn-gold-glow"
-                  >
-                    <a 
-                      href="https://play.google.com/store/apps/details?id=com.goldcoin.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2"
-                    >
-                      <Download className="w-5 h-5" />
-                      <span>Download Now</span>
-                    </a>
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </section>
