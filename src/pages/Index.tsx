@@ -10,7 +10,7 @@ import appScreenshot3 from "@/assets/app-screenshot-3.png";
 import appScreenshot4 from "@/assets/app-screenshot-4.png";
 import appScreenshot5 from "@/assets/app-screenshot-5.png";
 import appScreenshot6 from "@/assets/app-screenshot-6.png";
-import appScreenshot7 from "@/assets/app-screenshot-7.png";
+import certificate from "@/assets/certificate.png";
 import googlePlayBadge from "@/assets/google-play-badge.png";
 
 const Index = () => {
@@ -23,7 +23,7 @@ const Index = () => {
     appScreenshot4,
     appScreenshot5,
     appScreenshot6,
-    appScreenshot7,
+    certificate,
   ];
 
   const navigationItems = [
@@ -79,7 +79,7 @@ const Index = () => {
                 <span className="bg-gradient-gold bg-clip-text text-transparent"> Digital Mining</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Join thousands of users already earning with Goldcoin. Start your mining journey today.
+                Join Millions of Users already Mining GOLD COIN. Start Your Mining Journey on Mobile and Become a Visual Star among your friends.
               </p>
             </div>
 
@@ -201,23 +201,6 @@ const Index = () => {
                     className="h-16 md:h-20 hover:scale-105 transition-transform duration-300"
                   />
                 </a>
-                
-                <div className="mt-6">
-                  <Button 
-                    asChild
-                    className="bg-gradient-gold hover:bg-gradient-gold-glow text-primary-foreground font-semibold px-8 py-3 btn-gold-glow"
-                  >
-                    <a 
-                      href="https://play.google.com/store/apps/details?id=com.goldcoin.app"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2"
-                    >
-                      <Download className="w-5 h-5" />
-                      <span>Download Now</span>
-                    </a>
-                  </Button>
-                </div>
               </CardContent>
             </Card>
           </section>
