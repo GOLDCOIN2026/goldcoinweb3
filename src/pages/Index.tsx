@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Shield, Scale, Lock, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 import appScreenshot1 from "@/assets/app-screenshot-1.png";
@@ -25,11 +25,11 @@ const Index = () => {
   ];
 
   const navigationItems = [
-    { title: "White Paper", path: "/whitepaper" },
-    { title: "Privacy Policy", path: "/privacy" },
-    { title: "Terms of Use", path: "/terms" },
-    { title: "Security Guide", path: "/security" },
-    { title: "About Goldcoin", path: "/about" },
+    { title: "White Paper", path: "/whitepaper", icon: FileText },
+    { title: "Privacy Policy", path: "/privacy", icon: Shield },
+    { title: "Terms of Use", path: "/terms", icon: Scale },
+    { title: "Security Guide", path: "/security", icon: Lock },
+    { title: "About Goldcoin", path: "/about", icon: Info },
   ];
 
   useEffect(() => {
@@ -162,17 +162,21 @@ const Index = () => {
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-              {navigationItems.map((item, index) => (
-                <Card key={index} className="bg-card border-gold/20 hover:border-gold/50 transition-all duration-300 btn-gold-glow group">
-                  <CardContent className="p-6 text-center">
-                    <Link to={item.path} className="block">
-                      <h4 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                        {item.title}
-                      </h4>
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
+              {navigationItems.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card key={index} className="bg-card/50 border-gold/30 hover:border-gold hover:shadow-gold-glow transition-all duration-300 group">
+                    <CardContent className="p-8 text-center">
+                      <Link to={item.path} className="block">
+                        <Icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:text-gold transition-colors" />
+                        <h4 className="text-xl font-bold text-foreground group-hover:bg-gradient-gold group-hover:bg-clip-text group-hover:text-transparent transition-all">
+                          {item.title}
+                        </h4>
+                      </Link>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           </section>
 
