@@ -165,10 +165,13 @@ const Index = () => {
               {navigationItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
-                  <Card key={index} className="bg-card/50 border-gold/30 hover:border-gold hover:shadow-gold-glow transition-all duration-300 group">
+                  <Card 
+                    key={index} 
+                    className="bg-card/50 border-2 border-primary/40 hover:border-primary transition-all duration-300 group shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_30px_rgba(234,179,8,0.6)] hover:scale-105"
+                  >
                     <CardContent className="p-8 text-center">
                       <Link to={item.path} className="block">
-                        <Icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:text-gold transition-colors" />
+                        <Icon className="w-10 h-10 mx-auto mb-4 text-primary group-hover:text-accent transition-colors drop-shadow-[0_0_8px_rgba(234,179,8,0.5)]" />
                         <h4 className="text-xl font-bold text-foreground group-hover:bg-gradient-gold group-hover:bg-clip-text group-hover:text-transparent transition-all">
                           {item.title}
                         </h4>
