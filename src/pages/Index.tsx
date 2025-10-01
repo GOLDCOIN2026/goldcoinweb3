@@ -217,9 +217,12 @@ const Index = () => {
       {/* Footer */}
       <footer className="py-8 px-4 md:px-8 border-t border-border/30">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-muted-foreground">
-            © 2024 Goldcoin. All rights reserved.
-          </p>
+          <div className="flex items-center justify-center gap-2 text-muted-foreground">
+            <img src={goldcoinLogo} alt="Goldcoin" className="w-6 h-6" />
+            <p>© GOLDCOIN</p>
+            <img src={goldcoinLogo} alt="Goldcoin" className="w-6 h-6" />
+            <p>2026 Inc Ltd® - All Right Reserved.</p>
+          </div>
         </div>
       </footer>
     </div>
