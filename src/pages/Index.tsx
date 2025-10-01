@@ -9,7 +9,8 @@ import appScreenshot2 from "@/assets/app-screenshot-2.png";
 import appScreenshot3 from "@/assets/app-screenshot-3.png";
 import appScreenshot4 from "@/assets/app-screenshot-4.png";
 import appScreenshot5 from "@/assets/app-screenshot-5.png";
-import certificate from "@/assets/certificate.png";
+import utilityToken from "@/assets/utility-token.png";
+import appScreenshotSpin from "@/assets/app-screenshot-spin.png";
 import googlePlayBadge from "@/assets/google-play-badge.png";
 
 const Index = () => {
@@ -21,7 +22,8 @@ const Index = () => {
     appScreenshot3,
     appScreenshot4,
     appScreenshot5,
-    certificate,
+    utilityToken,
+    appScreenshotSpin,
   ];
 
   const navigationItems = [
