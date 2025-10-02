@@ -208,6 +208,18 @@ const Index = () => {
                     className="h-16 md:h-20 hover:scale-105 transition-transform duration-300"
                   />
                 </a>
+                
+                <a 
+                  href="https://uc5af56af4b3ff32fae2f5019449.dl.dropboxusercontent.com/cd/0/get/CyeCng_TvFb0K52H8EQdY5ZDXzRIzdangYbtJ5nfXpAGjajpuQ7duH589Rr_WdlCeVolZC_wQfbUzevhMYcwNdpcP7WmdGTVqA7x585lEmgE-ZYGJrXUqK54lP2w1LVILcM-sv53YpWAPQwYdDy6pbaiAfRxnZP2dbHrwsCHXOesJEx_qBBVEZv036yZFW-XIGI/file?_download_id=4067269505815536225193758463702767877805069520465234025798851403&_log_download_success=1&_notify_domain=www.dropbox.com&dl=1"
+                  download
+                  className="inline-block mt-6"
+                >
+                  <Button 
+                    className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-6 text-lg rounded-lg border-2 border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300"
+                  >
+                    Download
+                  </Button>
+                </a>
               </CardContent>
             </Card>
           </section>
