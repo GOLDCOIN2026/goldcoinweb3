@@ -215,7 +215,7 @@ const Index = () => {
                       Direct Download GOLDCOIN Version v1.1.apk
                     </p>
                     <a 
-                      href="https://uc5af56af4b3ff32fae2f5019449.dl.dropboxusercontent.com/cd/0/get/CyeCng_TvFb0K52H8EQdY5ZDXzRIzdangYbtJ5nfXpAGjajpuQ7duH589Rr_WdlCeVolZC_wQfbUzevhMYcwNdpcP7WmdGTVqA7x585lEmgE-ZYGJrXUqK54lP2w1LVILcM-sv53YpWAPQwYdDy6pbaiAfRxnZP2dbHrwsCHXOesJEx_qBBVEZv036yZFW-XIGI/file?_download_id=4067269505815536225193758463702767877805069520465234025798851403&_log_download_success=1&_notify_domain=www.dropbox.com&dl=1"
+                      href="https://my.microsoftpersonalcontent.com/personal/5b1fe5a3d92014a5/_layouts/15/download.aspx?UniqueId=3b24f3f1-f0a6-426c-9b15-ebe59376cf79&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiIxYzMyOWUxNS03NDFlLTQ4ZTQtOTIwYi02Nzk4NTg1MjY5OTUiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzU5NDI3ODA0In0.g-b5ev6aJX1M3DwoBTaZLtXJNvMfyJAiY2qHw-ly6RqTumIczXunYjOCkymiPDuWSKD_WDkP2LaeHQKgivxVbtQkXrotrvXNWbcVXp2m65ENNgxLOwUOxpfbxZY9cCXLTLexoLG5MnnfMw1EuaCq24_HuYbwFyFzYz4gsgfetJ7OuF-vsFto-yLaYauvNSxvFhQ-SPIVUcrSxz1Guy2jJBulBycjaT5J5Axns2bZ0_2D7cVSXaLWLOWCtbvE1ls9v8HzQvThhNij8J6HOa6YXmBSmjkSRBooSP5cI6zqN6dT070_JZZ1bqg8TUQmjWwW8PDGJm3q6vzveVT5cChEA2YYXRuGB6WuKXZarSdypEodNFu9fMIb_vO4GAOj7Nq8Lm2iUNbAxJ8powU6IKMoCLLC7URl6pbRTB2GWKinD9H9qf1MbPWnxroj7GfDdB9LtLv4JH2Pgo6nfLAz33h86JdZlkFEEAVkpajg4EKdWtUxrrsO39zAH4Qp--p8QCU26XHQFNv_WNqfiq3om2g8zg.IM0fA3vxORG50kN0FE4XKFnycAMaNZBXyIkmcyCRdAw&ApiVersion=2.0"
                       download
                     >
                       <Button 
