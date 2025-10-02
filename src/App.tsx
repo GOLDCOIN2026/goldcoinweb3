@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
 import SecurityGuide from "./pages/SecurityGuide";
 import AboutGoldcoin from "./pages/AboutGoldcoin";
+import Download from "./pages/Download";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/terms" element={<TermsOfUse />} />
           <Route path="/security" element={<SecurityGuide />} />
           <Route path="/about" element={<AboutGoldcoin />} />
+          <Route path="/download" element={<Download />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
