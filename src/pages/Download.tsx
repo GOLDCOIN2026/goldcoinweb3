@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 
 const Download = () => {
-  const downloadUrl = "https://my.microsoftpersonalcontent.com/personal/5b1fe5a3d92014a5/_layouts/15/download.aspx?UniqueId=3b24f3f1-f0a6-426c-9b15-ebe59376cf79&Translate=false&tempauth=v1e.eyJzaXRlaWQiOiIxYzMyOWUxNS03NDFlLTQ4ZTQtOTIwYi02Nzk4NTg1MjY5OTUiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzU5NDI3ODA0In0.g-b5ev6aJX1M3DwoBTaZLtXJNvMfyJAiY2qHw-ly6RqTumIczXunYjOCkymiPDuWSKD_WDkP2LaeHQKgivxVbtQkXrotrvXNWbcVXp2m65ENNgxLOwUOxpfbxZY9cCXLTLexoLG5MnnfMw1EuaCq24_HuYbwFyFzYz4gsgfetJ7OuF-vsFto-yLaYauvNSxvFhQ-SPIVUcrSxz1Guy2jJBulBycjaT5J5Axns2bZ0_2D7cVSXaLWLOWCtbvE1ls9v8HzQvThhNij8J6HOa6YXmBSmjkSRBooSP5cI6zqN6dT070_JZZ1bqg8TUQmjWwW8PDGJm3q6vzveVT5cChEA2YYXRuGB6WuKXZarSdypEodNFu9fMIb_vO4GAOj7Nq8Lm2iUNbAxJ8powU6IKMoCLLC7URl6pbRTB2GWKinD9H9qf1MbPWnxroj7GfDdB9LtLv4JH2Pgo6nfLAz33h86JdZlkFEEAVkpajg4EKdWtUxrrsO39zAH4Qp--p8QCU26XHQFNv_WNqfiq3om2g8zg.IM0fA3vxORG50kN0FE4XKFnycAMaNZBXyIkmcyCRdAw&ApiVersion=2.0";
+  const downloadUrl = "https://ia601002.us.archive.org/19/items/gold-coin-v-1.1/GOLD%20COIN%20v1.1.apk";
 
   useEffect(() => {
     // Automatically redirect to download after 1 second
