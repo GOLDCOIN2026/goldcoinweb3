@@ -1,20 +1,11 @@
-import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
+import { AlertTriangle } from "lucide-react";
 
 const Download = () => {
   const downloadUrl = "https://ia801002.us.archive.org/19/items/goldcoinweb-3-v-1.1/GOLDCOINWEB3%20v1.1.apk";
-
-  useEffect(() => {
-    // Automatically redirect to download after 1 second
-    const timer = setTimeout(() => {
-      window.location.href = downloadUrl;
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-dark flex items-center justify-center px-4">
@@ -32,12 +23,30 @@ const Download = () => {
           </div>
 
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            Downloading GOLDCOIN v1.1.apk
+            Download GOLDCOIN APK
           </h2>
           
-          <p className="text-muted-foreground mb-8">
-            Your download will start automatically. If it doesn't start, click the button below.
-          </p>
+          <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4 mb-6">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <AlertTriangle className="w-5 h-5 text-yellow-500" />
+              <p className="text-yellow-500 font-semibold">Warning</p>
+            </div>
+            <p className="text-sm text-muted-foreground">
+              This file may be harmful. Only download if you trust the source.
+            </p>
+          </div>
+
+          <div className="mb-8">
+            <p className="text-muted-foreground mb-2">
+              Check your version. The present latest version is:
+            </p>
+            <p className="text-xl font-bold text-foreground mb-4">
+              GOLDCOINWEB3 v1.1
+            </p>
+            <p className="text-muted-foreground">
+              Press the download button to download the APK
+            </p>
+          </div>
 
           <div className="flex flex-col items-center gap-6">
             <a 
