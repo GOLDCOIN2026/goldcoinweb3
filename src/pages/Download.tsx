@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 
 const Download = () => {
-  const downloadUrl = "https://ia800801.us.archive.org/29/items/goldcoin-web-3-v-1.0/GOLDCOIN%20WEB3%20v1.0.apk";
+  const downloadUrl = "https://ia801002.us.archive.org/19/items/goldcoinweb-3-v-1.1/GOLDCOINWEB3%20v1.1.apk";
 
   useEffect(() => {
     // Automatically redirect to download after 1 second

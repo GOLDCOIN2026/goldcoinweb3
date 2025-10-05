@@ -215,7 +215,7 @@ const Index = () => {
                       Direct Download GOLDCOIN Version v1.1.apk
                     </p>
                     <a 
-                      href="https://ia800801.us.archive.org/29/items/goldcoin-web-3-v-1.0/GOLDCOIN%20WEB3%20v1.0.apk"
+                      href="https://ia801002.us.archive.org/19/items/goldcoinweb-3-v-1.1/GOLDCOINWEB3%20v1.1.apk"
                       download
                     >
                       <Button 
