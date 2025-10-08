@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, FileText, Shield, Scale, Lock, Info } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Shield, Scale, Lock, Info, Briefcase, FileSpreadsheet } from "lucide-react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 import appScreenshot1 from "@/assets/app-screenshot-1.png";
 import appScreenshot2 from "@/assets/app-screenshot-2.png";
@@ -15,6 +16,7 @@ import googlePlayBadge from "@/assets/google-play-badge.png";
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isAdmin, setIsAdmin] = useState(false);
   
   const screenshots = [
     appScreenshot1,
@@ -40,6 +42,28 @@ const Index = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, [screenshots.length]);
+
+  useEffect(() => {
+    const checkAdmin = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const { data } = await supabase
+          .from("user_roles")
+          .select("role")
+          .eq("user_id", user.id)
+          .eq("role", "admin")
+          .single();
+        setIsAdmin(!!data);
+      }
+    };
+    checkAdmin();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(() => {
+      checkAdmin();
+    });
+
+    return () => subscription.unsubscribe();
+  }, []);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % screenshots.length);
@@ -234,11 +258,35 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 px-4 md:px-8 border-t border-border/30">
-        <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center gap-2 text-muted-foreground">
-            <p>© GOLDCOIN</p>
-            <img src={goldcoinLogo} alt="Goldcoin" className="w-6 h-6" />
-            <p>2026 Inc Ltd® - All Right Reserved.</p>
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
+              <Link to="/career" className="w-full sm:w-auto">
+                <Button 
+                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] transition-all duration-300"
+                >
+                  <Briefcase className="w-5 h-5 mr-2" />
+                  Career Opportunity
+                </Button>
+              </Link>
+
+              {isAdmin && (
+                <Link to="/applications" className="w-full sm:w-auto">
+                  <Button 
+                    className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] transition-all duration-300"
+                  >
+                    <FileSpreadsheet className="w-5 h-5 mr-2" />
+                    Applications
+                  </Button>
+                </Link>
+              )}
+            </div>
+
+            <div className="flex items-center justify-center gap-2 text-muted-foreground">
+              <p>© GOLDCOIN</p>
+              <img src={goldcoinLogo} alt="Goldcoin" className="w-6 h-6" />
+              <p>2026 Inc Ltd® - All Right Reserved.</p>
+            </div>
           </div>
         </div>
       </footer>
