@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useToast } from "@/hooks/use-toast";
+import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { supabase } from "@/integrations/supabase/client";
 import type { Database } from "@/integrations/supabase/types";
 import { ArrowLeft, Upload } from "lucide-react";
@@ -18,8 +18,8 @@ interface ApplicationFormProps {
 }
 
 const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
-  const { toast } = useToast();
   const [loading, setLoading] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string>("");
   const [formData, setFormData] = useState<{
@@ -46,11 +46,7 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
     const file = e.target.files?.[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        toast({
-          title: "File too large",
-          description: "Please select an image under 5MB",
-          variant: "destructive",
-        });
+        alert("File too large. Please select an image under 5MB");
         return;
       }
       setPhotoFile(file);
@@ -101,11 +97,7 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
 
       if (error) throw error;
 
-      toast({
-        title: "Application Submitted!",
-        description: "Thank You for showing interest to join the leading annotative group GOLDCOIN® Pvt Ltd. You will be informed through Email, please.",
-      });
-
+      setShowSuccess(true);
       setFormData({
         fullName: "",
         email: "",
@@ -118,34 +110,52 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
       });
       setPhotoFile(null);
       setPhotoPreview("");
-      onBack();
     } catch (error: any) {
-      toast({
-        title: "Submission Failed",
-        description: error.message,
-        variant: "destructive",
-      });
+      alert(`Submission Failed: ${error.message}`);
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gradient-dark">
-      <header className="py-6 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-center">
-          <div className="flex items-center space-x-4">
-            <img 
-              src={goldcoinLogo} 
-              alt="Goldcoin Logo" 
-              className="w-12 h-12 md:w-16 md:h-16"
-            />
-            <h1 className="text-4xl md:text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent text-gold-glow">
-              GOLD COIN
-            </h1>
+    <>
+      <AlertDialog open={showSuccess} onOpenChange={setShowSuccess}>
+        <AlertDialogContent className="bg-gold-50 border-2 border-primary">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-2xl text-primary">Application Submitted!</AlertDialogTitle>
+            <AlertDialogDescription className="text-lg text-foreground">
+              Thank You for showing interest to join the leading annotative group GOLDCOIN® Pvt Ltd. You will be informed through Email, please.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction 
+              onClick={() => {
+                setShowSuccess(false);
+                onBack();
+              }}
+              className="bg-primary hover:bg-primary/90"
+            >
+              OK
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <div className="min-h-screen bg-gradient-dark">
+        <header className="py-6 px-4 md:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-center">
+            <div className="flex items-center space-x-4">
+              <img 
+                src={goldcoinLogo} 
+                alt="Goldcoin Logo" 
+                className="w-12 h-12 md:w-16 md:h-16"
+              />
+              <h1 className="text-4xl md:text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent text-gold-glow">
+                GOLD COIN
+              </h1>
+            </div>
           </div>
-        </div>
-      </header>
+        </header>
 
       <main className="px-4 md:px-8 pb-16">
         <div className="max-w-4xl mx-auto">
@@ -158,15 +168,15 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
             Back
           </Button>
 
-          <Card className="bg-card/50 border-gold/30">
+          <Card className="bg-gold-50/90 border-2 border-primary/50 shadow-gold">
             <CardContent className="p-8 md:p-12">
-              <h2 className="text-3xl font-bold text-foreground mb-8 text-center">
+              <h2 className="text-3xl font-bold text-primary mb-8 text-center">
                 Job Application Form
               </h2>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="photo">Upload Photo *</Label>
+                  <Label htmlFor="photo" className="text-lg font-semibold text-foreground">Upload Photo *</Label>
                   <div className="flex items-center gap-4">
                     <Input
                       id="photo"
@@ -187,48 +197,48 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="fullName">Full Name *</Label>
+                  <Label htmlFor="fullName" className="text-lg font-semibold text-foreground">Full Name *</Label>
                   <Input
                     id="fullName"
                     value={formData.fullName}
                     onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                     required
-                    className="bg-background/50"
+                    className="bg-white/80 border-primary/30"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email">Email Address *</Label>
+                  <Label htmlFor="email" className="text-lg font-semibold text-foreground">Email Address *</Label>
                   <Input
                     id="email"
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
-                    className="bg-background/50"
+                    className="bg-white/80 border-primary/30"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
+                  <Label htmlFor="phone" className="text-lg font-semibold text-foreground">Phone Number *</Label>
                   <Input
                     id="phone"
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
-                    className="bg-background/50"
+                    className="bg-white/80 border-primary/30"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="position">Position Applied For *</Label>
+                  <Label htmlFor="position" className="text-lg font-semibold text-foreground">Position Applied For *</Label>
                   <Select
                     value={formData.position}
                     onValueChange={(value) => setFormData({ ...formData, position: value as JobPosition })}
                     required
                   >
-                    <SelectTrigger className="bg-background/50">
+                    <SelectTrigger className="bg-white/80 border-primary/30">
                       <SelectValue placeholder="Select a position" />
                     </SelectTrigger>
                     <SelectContent>
@@ -244,49 +254,49 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="experience">Work Experience *</Label>
+                  <Label htmlFor="experience" className="text-lg font-semibold text-foreground">Work Experience *</Label>
                   <Textarea
                     id="experience"
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                     required
-                    className="bg-background/50 min-h-24"
+                    className="bg-white/80 border-primary/30 min-h-24"
                     placeholder="Describe your relevant work experience..."
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="education">Education *</Label>
+                  <Label htmlFor="education" className="text-lg font-semibold text-foreground">Education *</Label>
                   <Textarea
                     id="education"
                     value={formData.education}
                     onChange={(e) => setFormData({ ...formData, education: e.target.value })}
                     required
-                    className="bg-background/50 min-h-24"
+                    className="bg-white/80 border-primary/30 min-h-24"
                     placeholder="Your educational background..."
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="address">Address *</Label>
+                  <Label htmlFor="address" className="text-lg font-semibold text-foreground">Address *</Label>
                   <Textarea
                     id="address"
                     value={formData.address}
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     required
-                    className="bg-background/50"
+                    className="bg-white/80 border-primary/30"
                     placeholder="Your complete address..."
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="coverLetter">Cover Letter *</Label>
+                  <Label htmlFor="coverLetter" className="text-lg font-semibold text-foreground">Cover Letter *</Label>
                   <Textarea
                     id="coverLetter"
                     value={formData.coverLetter}
                     onChange={(e) => setFormData({ ...formData, coverLetter: e.target.value })}
                     required
-                    className="bg-background/50 min-h-32"
+                    className="bg-white/80 border-primary/30 min-h-32"
                     placeholder="Tell us why you want to join GOLDCOIN..."
                   />
                 </div>
@@ -314,6 +324,7 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
         </div>
       </footer>
     </div>
+    </>
   );
 };
 

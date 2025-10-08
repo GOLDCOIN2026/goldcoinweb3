@@ -77,7 +77,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-dark">
       {/* Header */}
       <header className="py-6 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-center">
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <img 
               src={goldcoinLogo} 
@@ -87,6 +87,23 @@ const Index = () => {
             <h1 className="text-4xl md:text-6xl font-bold bg-gradient-gold bg-clip-text text-transparent text-gold-glow">
               GOLD COIN
             </h1>
+          </div>
+          <div className="flex items-center gap-3">
+            <Link to="/auth">
+              <Button 
+                variant="outline" 
+                className="border-primary/50 text-primary hover:bg-primary/10"
+              >
+                Login
+              </Button>
+            </Link>
+            <Link to="/auth">
+              <Button 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              >
+                Sign Up
+              </Button>
+            </Link>
           </div>
         </div>
       </header>

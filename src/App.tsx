@@ -12,6 +12,7 @@ import AboutGoldcoin from "./pages/AboutGoldcoin";
 import Download from "./pages/Download";
 import Career from "./pages/Career";
 import Applications from "./pages/Applications";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +33,7 @@ const App = () => (
           <Route path="/download" element={<Download />} />
           <Route path="/career" element={<Career />} />
           <Route path="/applications" element={<Applications />} />
+          <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
