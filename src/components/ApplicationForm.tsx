@@ -7,8 +7,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import type { Database } from "@/integrations/supabase/types";
 import { ArrowLeft, Upload } from "lucide-react";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
+
+type JobPosition = Database["public"]["Enums"]["job_position"];
 
 interface ApplicationFormProps {
   onBack: () => void;
@@ -19,7 +22,16 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
   const [loading, setLoading] = useState(false);
   const [photoFile, setPhotoFile] = useState<File | null>(null);
   const [photoPreview, setPhotoPreview] = useState<string>("");
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    fullName: string;
+    email: string;
+    phone: string;
+    position: JobPosition | "";
+    experience: string;
+    education: string;
+    address: string;
+    coverLetter: string;
+  }>({
     fullName: "",
     email: "",
     phone: "",
@@ -79,7 +91,7 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
         full_name: formData.fullName,
         email: formData.email,
         phone: formData.phone,
-        position: formData.position,
+        position: formData.position as JobPosition,
         experience: formData.experience,
         education: formData.education,
         address: formData.address,
@@ -213,18 +225,20 @@ const ApplicationForm = ({ onBack }: ApplicationFormProps) => {
                   <Label htmlFor="position">Position Applied For *</Label>
                   <Select
                     value={formData.position}
-                    onValueChange={(value) => setFormData({ ...formData, position: value })}
+                    onValueChange={(value) => setFormData({ ...formData, position: value as JobPosition })}
                     required
                   >
                     <SelectTrigger className="bg-background/50">
                       <SelectValue placeholder="Select a position" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="developer">Developer</SelectItem>
-                      <SelectItem value="designer">Designer</SelectItem>
-                      <SelectItem value="marketing">Marketing</SelectItem>
-                      <SelectItem value="support">Support</SelectItem>
-                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="Programmer">Programmer</SelectItem>
+                      <SelectItem value="Designer">Designer</SelectItem>
+                      <SelectItem value="Charted Accountant">Charted Accountant</SelectItem>
+                      <SelectItem value="Secretary">Secretary</SelectItem>
+                      <SelectItem value="Customer Support and Security Staff">Customer Support and Security Staff</SelectItem>
+                      <SelectItem value="Kitchen Staff">Kitchen Staff</SelectItem>
+                      <SelectItem value="Garden Staff">Garden Staff</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
