@@ -81,7 +81,7 @@ export const ApplicationForm = ({ onSuccess }: { onSuccess: () => void }) => {
 
       toast({
         title: "Application Submitted!",
-        description: "Your application has been successfully submitted. We will contact you soon.",
+        description: "Your form has been submitted successfully. We respect your wish to join the State of the Art Digital Empire. Stay tuned, you will be notified via Email.",
       });
       
       onSuccess();

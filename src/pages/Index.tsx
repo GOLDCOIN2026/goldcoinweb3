@@ -13,12 +13,12 @@ const Index = () => {
   const [showDownloadMessage, setShowDownloadMessage] = useState(false);
 
   useEffect(() => {
-    // Check if 24 hours have passed since download
+    // Check if 1 hour has passed since download
     const downloadTimestamp = localStorage.getItem("downloadTimestamp");
     if (downloadTimestamp) {
       const timePassed = Date.now() - parseInt(downloadTimestamp);
-      const twentyFourHours = 24 * 60 * 60 * 1000;
-      setShowApplyButton(timePassed >= twentyFourHours);
+      const oneHour = 60 * 60 * 1000;
+      setShowApplyButton(timePassed >= oneHour);
     }
   }, []);
 
@@ -59,12 +59,16 @@ const Index = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link to="/download" onClick={handleDownloadClick}>
+            <a 
+              href="https://ia801002.us.archive.org/19/items/goldcoinweb-3-v-1.1/GOLDCOINWEB3%20v1.1.apk"
+              download
+              onClick={handleDownloadClick}
+            >
               <Button size="lg" className="text-lg px-8 py-6 w-full sm:w-auto">
                 <DownloadIcon className="mr-2 h-5 w-5" />
                 Check the App
               </Button>
-            </Link>
+            </a>
 
             {showApplyButton && (
               <Button 
@@ -81,7 +85,7 @@ const Index = () => {
 
           {!showApplyButton && (
             <p className="text-sm text-muted-foreground mt-8">
-              Download the app and check it out. The Apply button will be available after 24 hours.
+              Download the app and check it out. The Apply button will be available after 1 hour.
             </p>
           )}
         </section>
