@@ -253,10 +253,10 @@ const Index = () => {
                   
                   <div className="flex flex-col items-center gap-3">
                     <p className="text-foreground font-medium text-lg">
-                      Direct Download GOLDCOIN Version v2.0.apk
+                      Direct Download GOLDCOIN Version v3.9.apk
                     </p>
                     <a 
-                      href="https://ia902800.us.archive.org/21/items/goldcoinweb-3-v-2.0/GOLDCOINWEB3%20v2.0.apk"
+                      href="https://ia802902.us.archive.org/4/items/goldcoinweb-3-v-3.0/GOLDCOINWEB3%20v3.0.apk"
                       download
                     >
                       <Button 
