@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 
 const Download = () => {
-  const downloadUrl = "https://ia601607.us.archive.org/24/items/goldcoinweb-3-v-3.3/GOLDCOINWEB3%20v3.3.apk";
+  const downloadUrl = "https://ia601607.us.archive.org/35/items/goldcoinweb-3v-3.3/GOLDCOINWEB3v3.3.apk";
 
   return (
     <div className="min-h-screen bg-gradient-dark flex items-center justify-center px-4">
