@@ -30,7 +30,7 @@ const Download = () => {
               Check your version. The present latest version is:
             </p>
             <p className="text-xl font-bold text-foreground mb-4">
-              GOLDCOINWEB3 v3.3
+              Goldcoin version v3.3
             </p>
             <p className="text-muted-foreground">
               Press the download button to download the APK
