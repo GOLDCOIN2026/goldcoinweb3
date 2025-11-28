@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ChevronLeft, ChevronRight, FileText, Shield, Scale, Lock, Info, Briefcase, FileSpreadsheet } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Shield, Scale, Lock, Info, FileSpreadsheet } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
@@ -12,7 +12,6 @@ import appScreenshot4 from "@/assets/app-screenshot-4.png";
 import appScreenshot5 from "@/assets/app-screenshot-5.png";
 import utilityToken from "@/assets/utility-token.png";
 import appScreenshotSpin from "@/assets/app-screenshot-spin.png";
-import googlePlayBadge from "@/assets/google-play-badge.png";
 
 const Index = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -231,41 +230,26 @@ const Index = () => {
             <Card className="bg-card/50 border-gold/30 max-w-2xl mx-auto">
               <CardContent className="p-8">
                 <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                  Download from Google Play
+                  Download GOLDCOIN App
                 </h3>
                 <p className="text-muted-foreground mb-8">
                   Get the Goldcoin app on your mobile device and start mining today!
                 </p>
                 
-                <div className="flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-3">
+                  <p className="text-foreground font-medium text-lg">
+                    Direct Download Goldcoin version v4.1.apk
+                  </p>
                   <a 
-                    href="https://play.google.com/store/apps/details?id=com.goldcoin.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block"
+                    href="https://ia601900.us.archive.org/29/items/gold-coin-v-4.1/GOLD%20COIN%20v4.1.apk"
+                    download
                   >
-                    <img 
-                      src={googlePlayBadge} 
-                      alt="Get it on Google Play"
-                      className="h-16 md:h-20 hover:scale-105 transition-transform duration-300"
-                    />
-                  </a>
-                  
-                  <div className="flex flex-col items-center gap-3">
-                    <p className="text-foreground font-medium text-lg">
-                      Direct Download Goldcoin version v4.0.apk
-                    </p>
-                    <a 
-                      href="https://ia600503.us.archive.org/5/items/goldcoinweb-3-v-4.0/GOLDCOINWEB3%20V4.0.apk"
-                      download
+                    <Button 
+                      className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-6 text-lg rounded-lg border-2 border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300"
                     >
-                      <Button 
-                        className="bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-6 text-lg rounded-lg border-2 border-green-400 shadow-[0_0_20px_rgba(34,197,94,0.6)] hover:shadow-[0_0_30px_rgba(34,197,94,0.8)] transition-all duration-300"
-                      >
-                        Download
-                      </Button>
-                    </a>
-                  </div>
+                      Download
+                    </Button>
+                  </a>
                 </div>
               </CardContent>
             </Card>
@@ -277,27 +261,16 @@ const Index = () => {
       <footer className="py-8 px-4 md:px-8 border-t border-border/30">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center gap-6">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md">
-              <Link to="/career" className="w-full sm:w-auto">
+            {isAdmin && (
+              <Link to="/applications" className="w-full sm:w-auto">
                 <Button 
-                  className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] transition-all duration-300"
+                  className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] transition-all duration-300"
                 >
-                  <Briefcase className="w-5 h-5 mr-2" />
-                  Career Opportunity
+                  <FileSpreadsheet className="w-5 h-5 mr-2" />
+                  Applications
                 </Button>
               </Link>
-
-              {isAdmin && (
-                <Link to="/applications" className="w-full sm:w-auto">
-                  <Button 
-                    className="w-full sm:w-auto bg-secondary hover:bg-secondary/90 text-secondary-foreground font-semibold px-8 py-6 text-lg rounded-lg shadow-[0_0_20px_rgba(234,179,8,0.6)] hover:shadow-[0_0_30px_rgba(234,179,8,0.8)] transition-all duration-300"
-                  >
-                    <FileSpreadsheet className="w-5 h-5 mr-2" />
-                    Applications
-                  </Button>
-                </Link>
-              )}
-            </div>
+            )}
 
             <div className="flex items-center justify-center gap-2 text-muted-foreground">
               <p>© GOLDCOIN</p>
