@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import goldcoinLogo from "@/assets/goldcoin-logo.png";
 
 const Download = () => {
-  const downloadUrl = "https://ia601900.us.archive.org/29/items/gold-coin-v-4.1/GOLD%20COIN%20v4.1.apk";
+  const downloadUrl = "https://ia902307.us.archive.org/8/items/goldcoinweb-3-v-4.4/GOLDCOINWEB3%20v4.4.apk";
 
   return (
     <div className="min-h-screen bg-gradient-dark flex items-center justify-center px-4">
@@ -30,7 +30,7 @@ const Download = () => {
               Check your version. The present latest version is:
             </p>
             <p className="text-xl font-bold text-foreground mb-4">
-              Goldcoin version v4.1
+              Goldcoin version v4.4
             </p>
             <p className="text-muted-foreground">
               Press the download button to download the APK
